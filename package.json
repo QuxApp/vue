@@ -1,5 +1,5 @@
 {
-  "name": "VueJS-with-Vite",
+  "name": "vue",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",

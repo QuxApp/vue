@@ -20,6 +20,14 @@
       </li>
       <span id="spot" :style="style"></span>
     </ul>
+    <ul id="social">
+      <li v-for="(item, index) in social">
+        <a :href="item.link">
+          <img :src="`src/assets/${item.name}.svg`">
+          <span class="label" :class="{ faded: closed }">{{ item.name }}</span>
+        </a>
+      </li>
+    </ul>
   </nav>
 </template>
 
@@ -47,7 +55,17 @@
             icon: 'settings',
           },
         ],
-        closed: false,
+        social: [
+          {
+            name: 'github',
+            link: 'https://github.com/quxapp',
+          },
+          {
+            name: 'discord',
+            link: 'https://discord.com/api/oauth2/authorize?client_id=964383562155577384&redirect_uri=https%3A%2F%2Fvue.quxapp.repl.co%2Fdashboard&response_type=token&scope=identify%20guilds%20guilds.members.read',
+          },
+        ],
+        closed: true,
         n: 0,
         loaded: false,
         style: {
@@ -94,6 +112,15 @@
     background: var(--darkest);
     transition: 0.25s;
     overflow: hidden;
+  }
+
+  #social {
+    margin: auto auto 0 0;
+  }
+
+  #social a img {
+    width: 3vw;
+    margin: 0 1vw;
   }
 
   #spot {
@@ -169,6 +196,7 @@
   .label {
     margin: 0 0 0 0.5vw;
     transition: opacity 0.25s;
+    text-transform: capitalize;
   }
 
   #toggle {
